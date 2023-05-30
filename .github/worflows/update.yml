@@ -1,0 +1,25 @@
+on: [push, workflow_dispatch]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    name: A job to update xml file
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Checkout your action
+        uses: actions/checkout@v3
+          with:
+            repository: Aszusz/xml-replace-action
+            path: xml-replace-action
+     
+      - name: Update xml file
+        uses: ./xml-replace-action
+        with:
+          file: ./file.xml
+          xpath: //item[@id="1"]/name
+          value: "Updated Item 1"
+
+      - name: Show changes
+        run: cat ./file.xml
