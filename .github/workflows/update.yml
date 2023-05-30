@@ -17,9 +17,9 @@ jobs:
       - name: Update xml file
         uses: ./xml-replace-action
         with:
-          file: ./file.xml
+          filepath: ./file.xml
           xpath: //item[@id="1"]/name
-          value: "Updated Item 1"
+          replace: "Updated Item 1"
 
       - name: Show changes
         run: cat ./file.xml
