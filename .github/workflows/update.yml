@@ -18,8 +18,8 @@ jobs:
         uses: ./xml-replace-action
         with:
           filepath: ./file.xml
-          xpath: //item[@id="1"]/name
-          replace: "Updated Item 1"
+          xpath: //item[@id="1"]/@id
+          replace: "Updated ID 1"
 
       - name: Show changes
         run: cat ./file.xml
